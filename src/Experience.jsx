@@ -1,13 +1,11 @@
-import { useState } from "react";
-
-export default function Experience() {
-  const [experience, setExperience] = useState({
-    companyName: "",
-    position: "",
-    responsibilities: "",
-    startDate: 0,
-    endDate: 0,
-  });
+export default function Experience({ experience, setExperience }) {
+  //   const [experience, setExperience] = useState({
+  //     companyName: "",
+  //     position: "",
+  //     responsibilities: "",
+  //     startDate: 0,
+  //     endDate: 0,
+  //   });
   return (
     <div style={{ display: "grid", gap: "0.3rem" }}>
       <input

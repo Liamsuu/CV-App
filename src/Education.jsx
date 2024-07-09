@@ -1,11 +1,9 @@
-import { useState } from "react";
-
-export default function Education() {
-  const [schoolInfo, setSchoolInfo] = useState({
-    schoolName: "",
-    courseName: "",
-    date: 0,
-  });
+export default function Education({ schoolInfo, setSchoolInfo }) {
+  //   const [schoolInfo, setSchoolInfo] = useState({
+  //     schoolName: "",
+  //     courseName: "",
+  //     date: 0,
+  //   });
 
   function handleSchoolName(e) {
     setSchoolInfo({ ...schoolInfo, schoolName: e.target.value });

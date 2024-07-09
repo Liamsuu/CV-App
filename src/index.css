@@ -2,17 +2,25 @@
   --background-clr: #f1f5f9;
   --secondary-clr: #e2e8f0;
 }
+body {
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
 
 #root {
   height: 100vh;
   display: flex;
   background-color: var(--background-clr);
+  gap: 20vw;
+  align-items: center;
 }
 
 form {
   width: 20vw;
+  border-radius: 0 5rem 5rem 0;
   background-color: var(--secondary-clr);
-  padding: 1rem;
+  padding: 3rem;
   color: #475569;
 }
 
@@ -30,4 +38,10 @@ input,
 textarea {
   background-color: #f1f5f9;
   border: 1px solid #cbd5e1;
+}
+
+#cv-wrapper {
+  height: 90%;
+  width: 30%;
+  border: 1px solid black;
 }

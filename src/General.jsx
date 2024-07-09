@@ -1,11 +1,9 @@
-import { useState } from "react";
-
-export default function General() {
-  const [generalInfo, setGeneralInfo] = useState({
-    fullName: "",
-    email: "",
-    phone: 0,
-  });
+export default function General({ generalInfo, setGeneralInfo }) {
+  //   const [generalInfo, setGeneralInfo] = useState({
+  //     fullName: "",
+  //     email: "",
+  //     phone: 0,
+  //   });
 
   function handleName(e) {
     setGeneralInfo({ ...generalInfo, fullName: e.target.value });
