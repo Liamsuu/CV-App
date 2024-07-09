@@ -39,7 +39,7 @@ export default function General() {
       <label>
         Phone number:
         <input
-          type="phone"
+          type="tel"
           id="phone"
           value={generalInfo.phone}
           onChange={handlePhone}
