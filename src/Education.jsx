@@ -18,7 +18,7 @@ export default function Education() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "grid" }}>
       <label>
         School Name:
         <input

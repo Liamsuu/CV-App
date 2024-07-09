@@ -17,7 +17,7 @@ export default function General() {
     setGeneralInfo({ ...generalInfo, phone: e.target.value });
   }
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "grid" }}>
       <label>
         Full Name:
         <input
