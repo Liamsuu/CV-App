@@ -21,6 +21,7 @@ export default function General({ generalInfo, setGeneralInfo }) {
         <input
           type="text"
           id="name"
+          placeholder="John Doe"
           value={generalInfo.fullName}
           onChange={handleName}
         />

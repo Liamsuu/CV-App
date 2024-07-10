@@ -1,11 +1,4 @@
 export default function Experience({ experience, setExperience }) {
-  //   const [experience, setExperience] = useState({
-  //     companyName: "",
-  //     position: "",
-  //     responsibilities: "",
-  //     startDate: 0,
-  //     endDate: 0,
-  //   });
   return (
     <div style={{ display: "grid", gap: "0.3rem" }}>
       <input
@@ -35,9 +28,13 @@ export default function Experience({ experience, setExperience }) {
         Start Date:
         <input
           type="date"
-          value={experience.startDate}
           onChange={(e) =>
-            setExperience({ ...experience, startDate: e.target.value })
+            setExperience({
+              ...experience,
+              startDate: `${new Date(e.target.value).getDate()}/${
+                new Date(e.target.value).getMonth() + 1
+              }/${new Date(e.target.value).getFullYear()}`,
+            })
           }
         />
       </label>
@@ -45,9 +42,13 @@ export default function Experience({ experience, setExperience }) {
         End Date:
         <input
           type="date"
-          value={experience.endDate}
           onChange={(e) =>
-            setExperience({ ...experience, endDate: e.target.value })
+            setExperience({
+              ...experience,
+              endDate: `${new Date(e.target.value).getDate()}/${
+                new Date(e.target.value).getMonth() + 1
+              }/${new Date(e.target.value).getFullYear()}`,
+            })
           }
         />
       </label>

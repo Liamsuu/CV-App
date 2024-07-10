@@ -12,11 +12,12 @@ function App() {
     companyName: "",
     position: "",
     responsibilities: "",
-    startDate: 0,
-    endDate: 0,
+    startDate: "",
+    endDate: "",
     schoolName: "",
     courseName: "",
-    date: 0,
+    schoolStart: "",
+    schoolEnd: "",
   });
 
   return (
@@ -31,12 +32,9 @@ function App() {
         <h2>Experience: </h2>
         <div>
           <Experience experience={inputValues} setExperience={setInputValues} />
-          <button>Add more</button>
         </div>
-        <hr />
-        <button type="submit">Submit</button>
       </form>
-      <CV />
+      <CV userInfo={inputValues} />
     </>
   );
 }

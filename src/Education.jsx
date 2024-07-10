@@ -11,8 +11,21 @@ export default function Education({ schoolInfo, setSchoolInfo }) {
   function handleCourseName(e) {
     setSchoolInfo({ ...schoolInfo, courseName: e.target.value });
   }
-  function handleSchoolDate(e) {
-    setSchoolInfo({ ...schoolInfo, date: e.target.value });
+  function handleSchoolStart(e) {
+    setSchoolInfo({
+      ...schoolInfo,
+      schoolStart: `${new Date(e.target.value).getDate()}/${
+        new Date(e.target.value).getMonth() + 1
+      }/${new Date(e.target.value).getFullYear()}`,
+    });
+  }
+  function handleSchoolEnd(e) {
+    setSchoolInfo({
+      ...schoolInfo,
+      schoolEnd: `${new Date(e.target.value).getDate()}/${
+        new Date(e.target.value).getMonth() + 1
+      }/${new Date(e.target.value).getFullYear()}`,
+    });
   }
 
   return (
@@ -34,12 +47,12 @@ export default function Education({ schoolInfo, setSchoolInfo }) {
         />
       </label>
       <label>
-        Date
-        <input
-          type="date"
-          value={schoolInfo.date}
-          onChange={handleSchoolDate}
-        />
+        Start Date:
+        <input type="date" onChange={handleSchoolStart} />
+      </label>
+      <label>
+        End Date:
+        <input type="date" onChange={handleSchoolEnd} />
       </label>
     </div>
   );
