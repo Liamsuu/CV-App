@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "../styles/App.css";
 import General from "./General";
 import Education from "./Education";
 import Experience from "./Experience";
