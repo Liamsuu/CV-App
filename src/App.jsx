@@ -62,14 +62,42 @@ function App() {
     });
   }
 
-  // console.log(eduList);
+  function removeEduFromList(id) {
+    const newArr = eduList.filter((object) => {
+      return object.id !== id;
+    });
+
+    return setEduList(newArr);
+  }
+
+  function displayActiveEdu() {
+    return eduList.map((object) => {
+      return (
+        <div
+          key={object.id}
+          style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+        >
+          <p>{object.schoolName}</p>{" "}
+          <button
+            style={{ height: "max-content" }}
+            onClick={() => removeEduFromList(object.id)}
+          >
+            Remove
+          </button>
+        </div>
+      );
+    });
+  }
+
   return (
     <>
       <form action="#" onSubmit={(event) => event.preventDefault}>
         <h2>General Information: </h2>
         <General generalInfo={inputValues} setGeneralInfo={setInputValues} />
         <hr />
+
         <h2>School Information: </h2>
+        {displayActiveEdu()}
         <Education schoolInfo={eduValues} setSchoolInfo={setEduValues} />
         <button onClick={addToEduList}>Add</button>
         <hr />

@@ -64,18 +64,6 @@ export default function CV({ inputValues, eduList, experienceList }) {
 
       <section id="experience-cv">
         <h2 style={{ textDecoration: "underline" }}>Experience</h2>
-        {/* <div style={{ display: "flex", gap: "5rem" }}>
-          <p style={{ fontSize: "0.8rem" }}>
-            <span style={{ fontWeight: "bold" }}>{userInfo.startDate}</span> -{" "}
-            <span style={{ fontWeight: "bold" }}>{userInfo.endDate}</span>
-          </p>
-          <p>
-            <span style={{ fontWeight: "bold" }}>{userInfo.companyName}</span>{" "}
-            <br />
-            <span style={{ fontSize: "0.8rem" }}>{userInfo.position}</span>
-          </p>
-        </div>
-        <p style={{ fontSize: "0.8rem" }}>{userInfo.responsibilities}</p> */}
         {displayExperience(experienceList)}
       </section>
     </div>
