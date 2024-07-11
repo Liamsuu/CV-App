@@ -1,39 +1,47 @@
-export default function CV({ userInfo }) {
+function displayEducation(eduList) {
+  return eduList.map((object) => {
+    return (
+      <div key={object.id} style={{ display: "flex", gap: "5rem" }}>
+        <p style={{ fontSize: "0.8rem" }}>
+          <span style={{ fontWeight: "bold" }}>{object.schoolStart}</span> -{" "}
+          <span style={{ fontWeight: "bold" }}>{object.schoolEnd}</span>
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>{object.schoolName}</span> <br />
+          <span style={{ fontSize: "0.8rem" }}>{object.courseName}</span>
+        </p>
+      </div>
+    );
+  });
+}
+
+export default function CV({ inputValues, eduList, experienceList }) {
   return (
     <div id="cv-wrapper">
       <section id="general-cv">
-        <h1 style={{ textAlign: "center" }}>{userInfo.fullName}</h1>
+        <h1 style={{ textAlign: "center" }}>{inputValues.fullName}</h1>
         <p style={{ paddingLeft: "1rem" }}>
           <span style={{ fontWeight: "bold", paddingRight: "3rem" }}>
             Email:{" "}
           </span>
-          {userInfo.email}
+          {inputValues.email}
         </p>
         <p style={{ paddingLeft: "1rem" }}>
           <span style={{ fontWeight: "bold", paddingRight: "3rem" }}>
             Phone:{" "}
           </span>
-          {userInfo.phone}
+          {inputValues.phone}
         </p>
       </section>
       <hr />
       <section id="education-cv">
         <h2 style={{ textDecoration: "underline" }}>Education</h2>
-        <div style={{ display: "flex", gap: "5rem" }}>
-          <p style={{ fontSize: "0.8rem" }}>
-            <span style={{ fontWeight: "bold" }}>{userInfo.schoolStart}</span> -{" "}
-            <span style={{ fontWeight: "bold" }}>{userInfo.schoolEnd}</span>
-          </p>
-          <p>
-            <span style={{ fontWeight: "bold" }}>{userInfo.schoolName}</span>{" "}
-            <br />
-            <span style={{ fontSize: "0.8rem" }}>{userInfo.courseName}</span>
-          </p>
-        </div>
+        {displayEducation(eduList)}
+        {console.log(eduList)}
       </section>
       <hr />
 
-      <section id="experience-cv">
+      {/* <section id="experience-cv">
         <h2 style={{ textDecoration: "underline" }}>Experience</h2>
         <div style={{ display: "flex", gap: "5rem" }}>
           <p style={{ fontSize: "0.8rem" }}>
@@ -47,7 +55,7 @@ export default function CV({ userInfo }) {
           </p>
         </div>
         <p style={{ fontSize: "0.8rem" }}>{userInfo.responsibilities}</p>
-      </section>
+      </section> */}
     </div>
   );
 }

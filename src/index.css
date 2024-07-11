@@ -9,21 +9,22 @@ body {
 }
 
 #root {
-  height: 100vh;
   display: flex;
   background-color: var(--background-clr);
   gap: 20vw;
-  padding: 5rem 0;
   align-items: center;
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding-bottom: 1rem;
 }
 
 form {
   width: 20vw;
-  border-radius: 0 5rem 5rem 0;
+  border-radius: 2rem;
   background-color: var(--secondary-clr);
   padding: 3rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
   color: #475569;
 }
 
@@ -45,10 +46,10 @@ textarea {
 }
 
 #cv-wrapper {
-  /* height: 90%; */
   height: fit-content;
   width: 30%;
-  border: 1px solid black;
+  border: 1px solid #404040;
   background-color: #fafafa;
   padding: 2rem;
+  color: #404040;
 }

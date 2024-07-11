@@ -4,22 +4,65 @@ import General from "./General";
 import Education from "./Education";
 import Experience from "./Experience";
 import CV from "./CV";
+import { v4 as uuidv4 } from "uuid";
+
 function App() {
   const [inputValues, setInputValues] = useState({
     fullName: "",
     email: "",
     phone: 0,
-    companyName: "",
-    position: "",
-    responsibilities: "",
-    startDate: "",
-    endDate: "",
+  });
+
+  const [eduValues, setEduValues] = useState({
+    id: uuidv4(),
     schoolName: "",
     courseName: "",
     schoolStart: "",
     schoolEnd: "",
   });
 
+  const [eduList, setEduList] = useState([]);
+
+  function addToEduList() {
+    setEduList((eduList) => [...eduList, { ...eduValues }]);
+    // reset edu values for new data
+    setEduValues({
+      id: uuidv4(),
+      schoolName: "",
+      courseName: "",
+      schoolStart: "",
+      schoolEnd: "",
+    });
+  }
+
+  const [experienceList, setExperienceList] = useState([]);
+
+  const [experienceValues, setExperienceValues] = useState({
+    id: uuidv4(),
+    companyName: "",
+    position: "",
+    responsibilities: "",
+    startDate: "",
+    endDate: "",
+  });
+
+  function addToExperienceList() {
+    setEduList((experienceList) => [
+      ...experienceList,
+      { ...experienceValues },
+    ]);
+    // reset edu values for new data
+    setExperienceValues({
+      id: uuidv4(),
+      companyName: "",
+      position: "",
+      responsibilities: "",
+      startDate: "",
+      endDate: "",
+    });
+  }
+
+  // console.log(eduList);
   return (
     <>
       <form action="#" onSubmit={(event) => event.preventDefault}>
@@ -27,14 +70,22 @@ function App() {
         <General generalInfo={inputValues} setGeneralInfo={setInputValues} />
         <hr />
         <h2>School Information: </h2>
-        <Education schoolInfo={inputValues} setSchoolInfo={setInputValues} />
+        <Education schoolInfo={eduValues} setSchoolInfo={setEduValues} />
+        <button onClick={addToEduList}>Add</button>
         <hr />
         <h2>Experience: </h2>
         <div>
-          <Experience experience={inputValues} setExperience={setInputValues} />
+          <Experience
+            experience={experienceValues}
+            setExperience={setExperienceValues}
+          />
         </div>
       </form>
-      <CV userInfo={inputValues} />
+      <CV
+        inputValues={inputValues}
+        eduList={eduList}
+        experienceList={experienceList}
+      />
     </>
   );
 }
