@@ -1,7 +1,10 @@
 function displayEducation(eduList) {
   return eduList.map((object) => {
     return (
-      <div key={object.id} style={{ display: "flex", gap: "5rem" }}>
+      <div
+        key={object.id}
+        style={{ display: "grid", gap: "5rem", gridTemplateColumns: "1fr 2fr" }}
+      >
         <p style={{ fontSize: "0.8rem" }}>
           <span style={{ fontWeight: "bold" }}>{object.schoolStart}</span> -{" "}
           <span style={{ fontWeight: "bold" }}>{object.schoolEnd}</span>
@@ -19,7 +22,14 @@ function displayExperience(experienceList) {
   return experienceList.map((object) => {
     return (
       <>
-        <div key={object.id} style={{ display: "flex", gap: "5rem" }}>
+        <div
+          key={object.id}
+          style={{
+            display: "grid",
+            gap: "5rem",
+            gridTemplateColumns: "1fr 2fr",
+          }}
+        >
           <p style={{ fontSize: "0.8rem" }}>
             <span style={{ fontWeight: "bold" }}>{object.startDate}</span> -{" "}
             <span style={{ fontWeight: "bold" }}>{object.endDate}</span>
@@ -58,7 +68,6 @@ export default function CV({ inputValues, eduList, experienceList }) {
       <section id="education-cv">
         <h2 style={{ textDecoration: "underline" }}>Education</h2>
         {displayEducation(eduList)}
-        {console.log(eduList)}
       </section>
       <hr />
 

@@ -51,7 +51,7 @@ function App() {
       ...experienceList,
       { ...experienceValues },
     ]);
-    // reset edu values for new data
+
     setExperienceValues({
       id: uuidv4(),
       companyName: "",
@@ -68,6 +68,14 @@ function App() {
     });
 
     return setEduList(newArr);
+  }
+
+  function removeExperienceFromList(id) {
+    const newArr = experienceList.filter((object) => {
+      return object.id !== id;
+    });
+
+    return setExperienceList(newArr);
   }
 
   function displayActiveEdu() {
@@ -89,6 +97,25 @@ function App() {
     });
   }
 
+  function displayActiveExperience() {
+    return experienceList.map((object) => {
+      return (
+        <div
+          key={object.id}
+          style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+        >
+          <p>{object.companyName}</p>{" "}
+          <button
+            style={{ height: "max-content" }}
+            onClick={() => removeExperienceFromList(object.id)}
+          >
+            Remove
+          </button>
+        </div>
+      );
+    });
+  }
+
   return (
     <>
       <form action="#" onSubmit={(event) => event.preventDefault}>
@@ -102,6 +129,7 @@ function App() {
         <button onClick={addToEduList}>Add</button>
         <hr />
         <h2>Experience: </h2>
+        {displayActiveExperience()}
         <div>
           <Experience
             experience={experienceValues}
