@@ -15,6 +15,27 @@ function displayEducation(eduList) {
   });
 }
 
+function displayExperience(experienceList) {
+  return experienceList.map((object) => {
+    return (
+      <>
+        <div key={object.id} style={{ display: "flex", gap: "5rem" }}>
+          <p style={{ fontSize: "0.8rem" }}>
+            <span style={{ fontWeight: "bold" }}>{object.startDate}</span> -{" "}
+            <span style={{ fontWeight: "bold" }}>{object.endDate}</span>
+          </p>
+          <p>
+            <span style={{ fontWeight: "bold" }}>{object.companyName}</span>{" "}
+            <br />
+            <span style={{ fontSize: "0.8rem" }}>{object.position}</span>
+          </p>
+        </div>
+        <p style={{ fontSize: "0.8rem" }}>{object.responsibilities}</p>
+      </>
+    );
+  });
+}
+
 export default function CV({ inputValues, eduList, experienceList }) {
   return (
     <div id="cv-wrapper">
@@ -41,9 +62,9 @@ export default function CV({ inputValues, eduList, experienceList }) {
       </section>
       <hr />
 
-      {/* <section id="experience-cv">
+      <section id="experience-cv">
         <h2 style={{ textDecoration: "underline" }}>Experience</h2>
-        <div style={{ display: "flex", gap: "5rem" }}>
+        {/* <div style={{ display: "flex", gap: "5rem" }}>
           <p style={{ fontSize: "0.8rem" }}>
             <span style={{ fontWeight: "bold" }}>{userInfo.startDate}</span> -{" "}
             <span style={{ fontWeight: "bold" }}>{userInfo.endDate}</span>
@@ -54,8 +75,9 @@ export default function CV({ inputValues, eduList, experienceList }) {
             <span style={{ fontSize: "0.8rem" }}>{userInfo.position}</span>
           </p>
         </div>
-        <p style={{ fontSize: "0.8rem" }}>{userInfo.responsibilities}</p>
-      </section> */}
+        <p style={{ fontSize: "0.8rem" }}>{userInfo.responsibilities}</p> */}
+        {displayExperience(experienceList)}
+      </section>
     </div>
   );
 }

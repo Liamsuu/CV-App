@@ -47,7 +47,7 @@ function App() {
   });
 
   function addToExperienceList() {
-    setEduList((experienceList) => [
+    setExperienceList((experienceList) => [
       ...experienceList,
       { ...experienceValues },
     ]);
@@ -79,6 +79,7 @@ function App() {
             experience={experienceValues}
             setExperience={setExperienceValues}
           />
+          <button onClick={addToExperienceList}>Add</button>
         </div>
       </form>
       <CV
